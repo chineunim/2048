@@ -1,0 +1,17 @@
+body {
+  display: flex;
+	background: #111;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-size: 21px;
+}
+
+.text {
+  order: 2;
+  padding-top: 40px;
+  width: 440px;
+  font-weight: bold;
+}
