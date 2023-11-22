@@ -1,5 +1,7 @@
 body {
   display: flex;
+	margin: 0;
+	padding: 0;
 	background: #111;
   color: white;
   flex-direction: column;
@@ -14,4 +16,12 @@ body {
   padding-top: 40px;
   width: 440px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 390px) {
+	body {
+		position: fixed;
+		height: 100%;
+		width: 100%;
+	}
 }

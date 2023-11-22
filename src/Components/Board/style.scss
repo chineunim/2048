@@ -29,12 +29,12 @@
 .board {
 	order: 1;
   width: 440px;
-  height: 440px;
+  height: auto;
   padding: 5px;
   background-color: #333;
   border-radius: 7px;
   outline: none;
-  position: relative;
+  position: relative;	
 }
 
 .details-box {
@@ -95,6 +95,25 @@
   background-color: #666;
 }
 
+@media screen and (max-width: 844px) {
+	.board {
+		width: 330px;
+	}
+	.cell,
+	.tile {
+		width: 72px;
+		height: 72px;
+	}
+	.tile {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.score-header {
+		font-size: 80%;
+	}
+}
+
 .tile0 {
 	color: #fff;
   background-color: #FFF8DC;
@@ -133,6 +152,7 @@
 .tile128 {
 	color: #fff;
   background-color: #DAA520;
+	font-size: 45px;
 }
 
 .tile256 {
@@ -253,3 +273,5 @@
 		font-size: 32px;
 	}
 }
+
+

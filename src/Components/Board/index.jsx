@@ -8,6 +8,8 @@ import "./style.scss"
 
 const GameBoard = () => {
 	const [board, setBoard] = useState(new Board());
+	const [touchStartX, setTouchStartX] = useState(null);
+	const [touchStartY, setTouchStartY] = useState(null);
 
 	const handleKeyDown = (e) => {
 		if(board.hasWon()){
@@ -25,7 +27,62 @@ const GameBoard = () => {
 		}
 	};
 
+	const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+    setTouchStartY(e.touches[0].clientY);
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStartX === null || touchStartY === null) {
+      return;
+    }
+
+    const touchEndX = e.touches[0].clientX;
+    const touchEndY = e.touches[0].clientY;
+
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    const minSwipeDistance = 50;
+
+    if (Math.abs(deltaX) > minSwipeDistance || Math.abs(deltaY) > minSwipeDistance) {
+      // define direction
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // horizontal
+        if (deltaX > 0) {
+          handleMove(2); // right
+        } else {
+          handleMove(0); // left
+        }
+      } else {
+        // vertical move
+        if (deltaY > 0) {
+          handleMove(3); // down
+        } else {
+          handleMove(1); // up
+        }
+      }
+      setTouchStartX(null);
+      setTouchStartY(null);
+    }
+  };
+
+  const handleMove = (direction) => {
+    if (board.hasWon()) {
+      return;
+    }
+
+    let boardClone = Object.assign(
+      Object.create(Object.getPrototypeOf(board)),
+      board
+    );
+    let newBoard = boardClone.move(direction);
+    setBoard(newBoard);
+  };
+
 	useEvent("keydown", handleKeyDown);
+	useEvent("touchstart", handleTouchStart);
+  useEvent("touchmove", handleTouchMove);
 
 	const cells = board.cells.map((row, rowIndex) => {
 		return(
