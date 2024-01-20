@@ -1,7 +1,7 @@
 {
   "name": "2048app",
   "version": "0.1.0",
-  "homepage": "https://chineunim.github.io/2048/index.html",
+  "homepage": "https://chineunim.github.io/2048/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "main -d build -r https://github.com/chineunim/2048"
+    "deploy": "gh-pages -d build -r https://github.com/chineunim/2048"
   },
   "eslintConfig": {
     "extends": [

@@ -26,6 +26,15 @@
 	}
 }
 
+@keyframes newTile {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .board {
 	order: 1;
   width: 440px;
@@ -95,7 +104,7 @@
   background-color: #666;
 }
 
-@media screen and (max-width: 844px) {
+@media screen and (max-width: 430px) {
 	.board {
 		width: 330px;
 	}
@@ -225,15 +234,6 @@
   animation-fill-mode: forwards;
   animation-delay: 0.15s;
   transform: scale(0);
-}
-
-@keyframes newTile {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
 }
 
 .overlay {

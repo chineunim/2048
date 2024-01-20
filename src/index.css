@@ -18,10 +18,15 @@ body {
   font-weight: bold;
 }
 
+.App {
+	overflow: hidden;
+}
+
 @media screen and (max-width: 390px) {
 	body {
 		position: fixed;
 		height: 100%;
 		width: 100%;
+		overscroll-behavior-y: contain;
 	}
 }
